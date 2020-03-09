@@ -52,7 +52,7 @@ def search_max_profit(prices: list) -> (int, int, int):
 		max_profit: 最大利润
 	"""
 	N = len(prices)
-	best_buy, best_sell, max_profit = None, None, 0
+	best_buy_loc, best_sell_loc, max_profit = None, None, 0
 	
 	# 从左往右搜索潜在买入时刻.
 	for i in range(N - 1):
@@ -96,9 +96,9 @@ def search_max_profit(prices: list) -> (int, int, int):
 					profit = prices[sell_loc_] - prices[buy_loc_]
 					
 					if profit > max_profit:
-						best_buy, best_sell, max_profit = i, j, profit
+						best_buy_loc, best_sell_loc, max_profit = i, j, profit
 	
-	return best_buy, best_sell, max_profit
+	return best_buy_loc, best_sell_loc, max_profit
 	
 	
 if __name__ == '__main__':
