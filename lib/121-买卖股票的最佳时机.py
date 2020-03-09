@@ -53,6 +53,8 @@ def search_max_profit(prices: list) -> (int, int, int):
 	"""
 	N = len(prices)
 	best_buy, best_sell, max_profit = None, None, 0
+	
+	# 从左往右搜索潜在买入时刻.
 	for i in range(N - 1):
 		if i == 0:
 			l = prices[:2]
@@ -71,6 +73,7 @@ def search_max_profit(prices: list) -> (int, int, int):
 		if buy_loc_ is None:
 			continue
 		else:
+			# 确定该买入时刻后, 继续往下搜索潜在的卖出时刻.
 			for j in range(buy_loc_ + 1, N):
 				if j == N - 1:
 					l = prices[-2:]
